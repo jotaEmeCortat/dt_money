@@ -1,6 +1,13 @@
+import React from 'react';
+import { api } from '../../services/api';
 import { TransactionsTableWrapper } from './styles';
 
 export const TransactionsTable = () => {
+  React.useEffect(() => {
+    api
+      .get('transactions')
+      .then((response) => console.log(response.data));
+  }, []);
   return (
     <TransactionsTableWrapper>
       <table>
@@ -13,9 +20,7 @@ export const TransactionsTable = () => {
           </tr>
         </thead>
 
-        <tbody>
-        
-        </tbody>
+        <tbody></tbody>
       </table>
     </TransactionsTableWrapper>
   );
