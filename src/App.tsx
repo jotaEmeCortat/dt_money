@@ -1,15 +1,29 @@
+import React from 'react';
 import { GlobalStyle } from './theme/GlobalStyle';
 import { Header } from './components/Header';
 import { Dashboard } from './components/Dashboard';
-
-
+import { NewTransactionModal } from './NewTransactionModal';
 
 export function App() {
+  const [isNewTransactionModal, setIsNewTransactionModal] =
+    React.useState(false);
+
+  function handleOpenNewTransactionModal() {
+    setIsNewTransactionModal(true);
+  }
+
+  function handleCloseNewTransactionModal() {
+    setIsNewTransactionModal(false);
+  }
   return (
     <>
       <GlobalStyle />
-      <Header />
+      <Header onNewTransactionModal={handleOpenNewTransactionModal} />
       <Dashboard />
+      <NewTransactionModal
+        isOpen={isNewTransactionModal}
+        onRequestClose={handleCloseNewTransactionModal}
+      />
     </>
   );
 }
