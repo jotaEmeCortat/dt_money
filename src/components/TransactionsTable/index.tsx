@@ -1,24 +1,9 @@
-import React from 'react';
-import { api } from '../../services/api';
+import { useTransactions } from '../../hooks/useTransactions';
 import { TransactionsTableWrapper } from './styles';
 
-type TransactionProps = {
-  id: number;
-  title: string;
-  amount: number;
-  type: string;
-  category: string;
-  createdAt: string;
-};
-
 export const TransactionsTable = () => {
-  const [transactions, setTransaction] = React.useState<TransactionProps[]>([]);
+  const { transactions } = useTransactions();
 
-  React.useEffect(() => {
-    api
-      .get('transactions')
-      .then((response) => setTransaction(response.data.transactions));
-  }, []);
   return (
     <TransactionsTableWrapper>
       <table>

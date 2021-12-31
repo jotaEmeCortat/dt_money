@@ -14,10 +14,18 @@ createServer({
       transactions: [
         {
           id: 1,
-          title: 'modelo',
+          title: 'model',
           type: 'deposit',
-          category: 'modelo',
+          category: 'model',
           amount: 600,
+          createdAt: new Date('2021-02-12 09:00:00'),
+        },
+        {
+          id: 2,
+          title: 'model',
+          type: 'withdraw',
+          category: 'model',
+          amount: 400,
           createdAt: new Date('2021-02-12 09:00:00'),
         },
       ],
